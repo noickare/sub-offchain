@@ -11,12 +11,11 @@ import config from "./config";
 
 import { checkAuth } from "./middleware/checkAuth";
 import * as authController from "./controller/auth";
-import { User } from "./entity/User";
 
 declare global {
   namespace Express {
     interface Request {
-      user: string
+      user?: string
     }
   }
 }
@@ -46,6 +45,7 @@ app.use(morgan("combined"));
   }
 
   app.post("/register", checkAuth, authController.register);
+  app.get("/me", checkAuth, authController.getMe);
 
   app.post("*", (req, res) => {
     res.status(404).json({

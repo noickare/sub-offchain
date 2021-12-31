@@ -39,4 +39,12 @@ export class AuthService {
     return { email, username, uid };
   }
 
+  public async getUser(uid: string) {
+    try {
+      const user = await User.findOneOrFail({ uid: uid });
+      return user;
+    } catch (error) {
+      throw new Error(error);
+    }
+  }
 }
