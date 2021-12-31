@@ -2,18 +2,37 @@ import express from "express";
 import compression from "compression";
 import helmet from "helmet";
 import morgan from "morgan";
+import cookieParser from "cookie-parser";
+import cors from 'cors';
 
 import { createConnection } from "typeorm";
 
 import config from "./config";
 
-import * as validatorMiddleware from "./middleware/validator";
+import { checkAuth } from "./middleware/checkAuth";
 import * as authController from "./controller/auth";
+import { User } from "./entity/User";
+
+declare global {
+  namespace Express {
+    interface Request {
+      user: string
+    }
+  }
+}
 
 const app = express();
+
+var corsOptions = {
+  origin: 'http://localhost:8000',
+  optionsSuccessStatus: 200 // some legacy browsers (IE11, various SmartTVs) choke on 204
+}
+
 // Add middlewares
+app.use(cors(corsOptions));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
+app.use(cookieParser())
 app.use(helmet());
 app.use(compression());
 app.use(morgan("combined"));
@@ -26,8 +45,7 @@ app.use(morgan("combined"));
     console.log("DB Connection Error: " + err);
   }
 
-  app.post("/register", validatorMiddleware.register, authController.register);
-  app.get("/confirmemail", validatorMiddleware.confirmEmail, authController.confirmEmail);
+  app.post("/register", checkAuth, authController.register);
 
   app.post("*", (req, res) => {
     res.status(404).json({

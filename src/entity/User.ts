@@ -12,22 +12,16 @@ export class User extends BaseEntity {
     @Column({ unique: true })
     email: string;
 
-    @Column({ length: 128 })
-    password: string;
-
     @Column()
     isActive: boolean;
 
     @Column({ length: 128 })
     username: string;
 
-    @Column({ length: 128 })
-    salt: string;
-    
     @Column()
     isUserConfirmed: boolean;
-    
+
     @Column("timestamp", { default: () => "CURRENT_TIMESTAMP" })
-    createdAt: string
+    createdAt: string;
 
 }
