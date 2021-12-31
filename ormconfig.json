@@ -1,0 +1,27 @@
+{
+   "type": "postgres",
+   "host": "clue-postgres-do-user-10290731-0.b.db.ondigitalocean.com",
+   "port": 25060,
+   "username": "doadmin",
+   "password": "a3wN8ebJnX8xGgOT",
+   "database": "clueconn",
+   "ssl": {
+      "ca": "-----BEGIN CERTIFICATE-----\nMIIEQTCCAqmgAwIBAgIUY5L+idbjUiWZdUPTbH6lFOKChbowDQYJKoZIhvcNAQEM\nBQAwOjE4MDYGA1UEAwwvMDlmZWQ4OWYtNTRiZi00Mjk3LWJlYWMtNjFmODQ5MjZh\nNzY0IFByb2plY3QgQ0EwHhcNMjExMjMwMjI1OTAwWhcNMzExMjI4MjI1OTAwWjA6\nMTgwNgYDVQQDDC8wOWZlZDg5Zi01NGJmLTQyOTctYmVhYy02MWY4NDkyNmE3NjQg\nUHJvamVjdCBDQTCCAaIwDQYJKoZIhvcNAQEBBQADggGPADCCAYoCggGBAMQOVfun\nRpaGBtuQxcRCD08uiqzjfcUsCIW0D+KS22xGz2HqelJ9Uvq3O6hxCSddGLuXJkng\neMeGqwwEfn5T8Fv+chX5xI3+Z/rTiAeAOU9H1DkRp31yx5+7mIGikmVDWhpTIoMy\n6M9hMPaicG87xqSfnLuj26xrx5qAFNfDTJ979d9jOcAyJoNnC6dsZVctfYy9BZpp\n6Ggi3REF0OX4auhUtLLahTHfrf5fVn09RzchoDbcDfIjXlXGczL94tq9XkqJNGFC\nAEf1Il1GK5k811LvqG1m55tiVg3cWwwywNgQ6rQRDqbd0bK4BM/N1JprIXTC+pmj\nHmmjB0Md577iXVLHTFCV0wwYZhytYG4R9puCZibE2pF9doh0ID2E+wvqyYUpvtxw\nnPwo9Bw+xPx3SDIkLK8QdznUl3LF0UtkSNBbqR6wtAw2JE8g1J+R+qnYMJy9S3Ig\nInKOJ3laxUuPyNaetor61W/hePUQe6np56c7nKDer/n60KOacPpwEZWbiQIDAQAB\noz8wPTAdBgNVHQ4EFgQUZXTd09Gka3Y7Pi6JP/ht33GaTokwDwYDVR0TBAgwBgEB\n/wIBADALBgNVHQ8EBAMCAQYwDQYJKoZIhvcNAQEMBQADggGBAECWaSHLDlFccLw1\nIipUgP2GER8UNdZV8YWivV2vyVPQjWFZq5mIcv7TZZWe0yUHRimQJc8iQFSpNuyi\nBUKX4VrSDTnRgL2qnsTzTQsmmAI83ObRYd5Jzj0gV9juXftKISE/bt6NhiSbA1N2\npwopDy+6xLINHF/A4VZaaaf2pacq1sxQwZMXVYK0qxgPXtwPOThEjh8Duiws1HkJ\nnJoKtGauFdFo/lQO/Axd5vnmYXniyLkeeVCCfEyyrMIQMXxfc52Dje2Wqm2dXQTu\ng1MYQV+Qr+g2ijJ0vtoeRd24nBL+l8XWwfx/zvxmTUrr8ESBsAM0a6Pjb/NljzoE\n6bUM819LG9pUKLtdlLJI96/o2Z8/yU/J8OjRDj8dWGK2/YKG+q44g6fCDOOgug3I\nxdIZjm2xUPMPz1zCtPA/sO4yU3Iatcyei5bswUHXRkKPNnFOfDtNAFUzf9n6Icaz\njOAnG37BI8yDoeF+49MZJOi17MsfkiG9d3VPPeG31GIWVeChoA==\n-----END CERTIFICATE-----\n"
+   },
+   "synchronize": true,
+   "logging": false,
+   "entities": [
+      "src/entity/**/*.ts"
+   ],
+   "migrations": [
+      "src/migration/**/*.ts"
+   ],
+   "subscribers": [
+      "src/subscriber/**/*.ts"
+   ],
+   "cli": {
+      "entitiesDir": "src/entity",
+      "migrationsDir": "src/migration",
+      "subscribersDir": "src/subscriber"
+   }
+}
