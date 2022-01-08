@@ -8,7 +8,8 @@ export async function checkAuth(
 ) {
   //@ts-ignore
   try {
-      const token = req.header("Authorization").replace("Bearer", "").trim();
+    const token = req.header("Authorization").replace("Bearer", "").trim();
+    // console.log(token);
     const decodedToken = await admin.auth().verifyIdToken(token);
     if (decodedToken) {
       req.user = decodedToken.uid;

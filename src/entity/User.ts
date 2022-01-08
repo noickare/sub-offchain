@@ -1,4 +1,6 @@
-import {Entity, BaseEntity, PrimaryGeneratedColumn, Column} from "typeorm";
+import {Entity, BaseEntity, PrimaryGeneratedColumn, Column, OneToMany} from "typeorm";
+import { Nft } from "./Nft";
+import { NftLike } from "./NftLikes";
 
 @Entity()
 export class User extends BaseEntity {
@@ -20,6 +22,15 @@ export class User extends BaseEntity {
 
     @Column()
     isUserConfirmed: boolean;
+
+    @OneToMany(() => Nft, nft => nft.owner)
+    nfts: Nft[];
+
+    @OneToMany(() => Nft, nft => nft.seller)
+    selling: Nft[];
+
+    @OneToMany(() => NftLike, like => like.user)
+    likes: NftLike[];
 
     @Column("timestamp", { default: () => "CURRENT_TIMESTAMP" })
     createdAt: string;

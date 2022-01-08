@@ -11,14 +11,7 @@ import config from "./config";
 
 import { checkAuth } from "./middleware/checkAuth";
 import * as authController from "./controller/auth";
-
-declare global {
-  namespace Express {
-    interface Request {
-      user?: string
-    }
-  }
-}
+import { createNft, getNftByUid, likeAsset, checkLikedAsset } from './controller/nft';
 
 const app = express();
 
@@ -46,6 +39,10 @@ app.use(morgan("combined"));
 
   app.post("/register", checkAuth, authController.register);
   app.get("/me", checkAuth, authController.getMe);
+  app.post("/create", checkAuth, createNft);
+  app.get("/asset/:uid", checkAuth, getNftByUid);
+  app.post("/asset/like/:assetId", checkAuth, likeAsset);
+  app.get("/asset/like/:assetId", checkAuth, checkLikedAsset);
 
   app.post("*", (req, res) => {
     res.status(404).json({

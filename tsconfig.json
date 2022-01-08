@@ -2,14 +2,15 @@
    "compilerOptions": {
        "module": "commonjs",
        "esModuleInterop": true,
-       "target": "es6",
-       "noImplicitAny": true,
+       "target": "es5",
+       "noImplicitAny": false,
        "moduleResolution": "node",
        "sourceMap": true,
        "outDir": "dist",
        "baseUrl": ".",
        "emitDecoratorMetadata": true,
        "experimentalDecorators": true,
+       "typeRoots": ["./src/@types", "./node_modules/@types"],
        "paths": {
            "*": [
                "node_modules/*",
